@@ -27,7 +27,7 @@ function Pathfinder() {
 
         sourcedataPoints,
         destinationdataPoints,
- 
+
         display,
 
         setStartFloor,
@@ -70,7 +70,7 @@ function Pathfinder() {
     // Function to handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         if (formData.source === formData.target) {
             setStartFloor(formData.Formsourcefloor);
             setEndFloor(formData.FormEndFloor);
@@ -83,7 +83,7 @@ function Pathfinder() {
             try {
                 console.log(formData)
                 const response = await fetch(`${EXTERNAL_PATH_URL}/api/distance`, {
-                    method: 'POST', 
+                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -125,6 +125,18 @@ function Pathfinder() {
             <div className='flex flex-col md:flex-row  w-[100%] md:h-[100vh]'>
                 <div className='overflow-y-scroll flex flex-col gap-3 items-center text-center p-2 rounded-r-lg bg-white drop-shadow-lg shadow-lg w-[100%] md:w-[20%]'>
                     <div className='w-full rounded-md text-white font-bold text-2xl py-3 font-sans bg-blue'>Path Finder</div>
+                    <div class="overflow-hidden whitespace-nowrap w-full bg-gray-100">
+                        <div class="inline-block animate-marquee">
+                            <span class="flex justify-center items-center text-center gap-1 px-4 py-1 text-base font-medium text-gray-800">
+                                <div className='bg-gray-300 text-black rounded-full w-6 h-6 flex items-center justify-center'>
+                                    i
+                                </div>
+                                <div className='flex text-center justify-center items-center'>
+                                    Currently Only Tech Park and SRM Univeristy Building Floors are available
+                                </div>
+                            </span>
+                        </div>
+                    </div>
                     <div className='bg-blue py-3 text-white rounded-md w-full'>
                         <form onSubmit={handleSubmit} className="max-w-sm mx-auto px-4 py-2 flex flex-col gap-3">
                             <div>
