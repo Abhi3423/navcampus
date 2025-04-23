@@ -11,8 +11,13 @@
 </b>
 </p>
 
-# 🚀 User Explanation Demo
-https://youtu.be/YwFrKSPNdH8
+# 🚀 User Demo
+      https://youtu.be/YwFrKSPNdH8
+
+# 🚀 Admin System Demo
+
+https://github.com/user-attachments/assets/c5b34745-8b7e-4bc9-a566-3bc8173aad77
+
 
 
 # 💡  Problem Statement
