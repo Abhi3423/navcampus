@@ -1,6 +1,6 @@
 <br>
 <p align="center">
-<b>Hybrid Campus Navigation System:
+<b>Hybrid Campus Navigation System
 <br>
  The system employs an admin-controlled node finding using
  the RRT-Connect algorithm and storage mechanism, enabling
@@ -10,6 +10,10 @@
  user experience by displaying multi-floor navigation paths.
 </b>
 </p>
+
+# 🚀 User Explanation Demo
+https://youtu.be/YwFrKSPNdH8
+
 
 # 💡  Problem Statement
 
