@@ -67,7 +67,7 @@ function Information() {
                 <div className="p-6">
                     <h2 className="text-xl font-semibold mb-2">&#128300; Research &amp; Algorithms</h2>
                     <p className="text-base text-gray-700 mb-4">
-                        The system's innovation lies in combining RRT-Connect for exploration with Dijkstra&rsquo;s for optimization, achieving superior performance in dynamic and complex spaces.
+                        The system&apos;s innovation lies in combining RRT-Connect for exploration with Dijkstra&rsquo;s for optimization, achieving superior performance in dynamic and complex spaces.
                     </p>
                     <div className='flex gap-4'>
                         <Button

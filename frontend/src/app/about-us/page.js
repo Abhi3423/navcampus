@@ -15,7 +15,7 @@ function AboutUs() {
                     <h1 className="text-4xl md:text-6xl font-bold text-[#337AB7]">Hybrid Navigation System</h1>
                     <p className="text-lg md:text-xl leading-8 text-gray-700">
                         Our mission is to eliminate confusion, reduce search time, and provide effortless navigation across complex campuses.
-                        Whether you're a student or visitor in a campus, our hybrid indoor-outdoor pathfinding and real-time 3D maps guide you to your destination — fast, easy, and intuitively.
+                        Whether you&apos;re a student or visitor in a campus, our hybrid indoor-outdoor pathfinding and real-time 3D maps guide you to your destination — fast, easy, and intuitively.
                     </p>
                 </section>
 
