@@ -41,6 +41,15 @@ const useMapStore = create((set) => ({
     landmark: '',
     buildings: [],
 
+
+    // Indoor Map states
+    mapImage: null,
+    currentFloor: 'start',
+    floorHeader: '',
+    startFloorData: null,
+    endFloorData: null,
+    hasFetchedPath: false,
+
     // Setters
     setFormData: (newData) =>
         set((state) => ({
@@ -75,6 +84,13 @@ const useMapStore = create((set) => ({
     setOutdoorMap: (outdoorMap) => set({ outdoorMap }),
     setLandmark: (landmark) => set({ landmark }),
     setBuildings: (buildings) => set({ buildings }),
+
+    setMapImage: (mapImage) => set({ mapImage }),
+    setCurrentFloor: (currentFloor) => set({ currentFloor }),
+    setFloorHeader: (floorHeader) => set({ floorHeader }),
+    setStartFloorData: (startFloorData) => set({ startFloorData }),
+    setEndFloorData: (endFloorData) => set({ endFloorData }),
+    setHasFetchedPath: (value) => set({ hasFetchedPath: value }),
 }));
 
 export default useMapStore;

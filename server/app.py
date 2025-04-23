@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 from routes.admin_routes import admin_bp
 from routes.internalMap_routes import internal_map_bp
@@ -9,7 +9,7 @@ CORS(app)
 
 @app.route('/')
 def home():
-    return 'Welcome to Map Server.'
+    return jsonify({"data": 'Welcome to Server.'}), 200
 
 # Register API blueprints
 app.register_blueprint(admin_bp, url_prefix='/api')

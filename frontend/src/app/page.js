@@ -1,11 +1,42 @@
+"use client"
 import Image from "next/image";
 import location from "../../public/assets/image.png";
 import HowItWorks from "../../public/assets/HowItWorks.png";
 import { Button } from 'flowbite-react';
 import Textborder from "@/UI/textborder";
 import { FooterComponent } from "./Footer";
+import { EXTERNAL_PATH_URL } from "@/utils/constants/const";
+import { useEffect } from "react";
 
 export default function Home() {
+
+  useEffect(() => {
+    const RunServer = async () => {
+      try {
+        
+        const response = await fetch(`${EXTERNAL_PATH_URL}/`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+
+        const responseData = await response.json();
+        console.log(responseData.data);
+        
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    RunServer();
+  }, []);
+
+
   return (
     <main className="flex flex-col items-center">
       {/* Parallax background */}
@@ -15,7 +46,7 @@ export default function Home() {
           className="absolute inset-0 bg-fixed bg-cover bg-center filter blur-[3px]"
           style={{ backgroundImage: `url('/assets/street.jpg')` }}
         ></div>
-        
+
         {/* Content on top of the background image */}
         <div className="absolute inset-0 flex flex-col gap-4 justify-start items-center py-32 md:px-24 text-[#487dab] text-3xl md:text-6xl font-bold">
           <div className="flex items-center text-center px-20">

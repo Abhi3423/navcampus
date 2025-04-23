@@ -26,10 +26,10 @@ export default function RootLayout({ children }) {
             <NavbarLink href="/">
               <div className={navbtnclass}>Home</div>
             </NavbarLink>
-            <NavbarLink as={Link} href="#">
+            <NavbarLink as={Link} href="about-us">
               <div className={navbtnclass}>About</div>
             </NavbarLink>
-            <NavbarLink href="#">
+            <NavbarLink as={Link} href="information">
               <div className={navbtnclass}>Information</div>
             </NavbarLink>
           </NavbarCollapse>

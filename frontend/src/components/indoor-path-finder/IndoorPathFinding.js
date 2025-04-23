@@ -18,17 +18,24 @@ export default function PathfindingClient() {
         outdoorMap,
         setDisplay,
         setModelData,
+        nodes,
         setNodes,
         setStartModelData,
-        setEndModelData
+        setEndModelData,
+        mapImage,
+        setMapImage,
+        currentFloor,
+        setCurrentFloor,
+        floorHeader,
+        setFloorHeader,
+        startFloorData,
+        setStartFloorData,
+        endFloorData,
+        setEndFloorData,
+        hasFetchedPath,
+        setHasFetchedPath
     } = useMapStore();
 
-
-    const [currentFloor, setCurrentFloor] = useState("start");
-    const [mapImage, setMapImage] = useState(null);
-    const [floorHeader, setFloorHeader] = useState("");
-    const [startFloorData, setStartFloorData] = useState(null);
-    const [endFloorData, setEndFloorData] = useState(null);
 
     const displayFloor = useCallback((floorData) => {
         setMapImage(`data:image/png;base64,${floorData.image}`);
@@ -53,10 +60,13 @@ export default function PathfindingClient() {
     };
 
     useEffect(() => {
-        let isMounted = false;
 
+        console.log(startFloor);
+        if (hasFetchedPath) return;
+
+        
         const fetchData = async () => {
-            if (!isMounted && startFloor && endFloor && startPosition && endPosition) {
+            if (startFloor && endFloor && startPosition && endPosition) {
                 try {
                     const response = await fetch(`${INTERNAL_PATH_URL}/api/path`, {
                         method: "POST",
@@ -80,6 +90,7 @@ export default function PathfindingClient() {
                     console.log(result);
 
                     if (result) {
+                        setHasFetchedPath(true);
                         if (result.start_floor && result.end_floor) {
                             setStartFloorData(result.start_floor);
                             setEndFloorData(result.end_floor);
@@ -114,12 +125,8 @@ export default function PathfindingClient() {
         };
 
         fetchData();
-        isMounted = true;
 
-        return () => {
-            isMounted = true;
-        };
-    }, [startFloor, endFloor, startPosition, endPosition, landmark, displayFloor, setNodes, setStartModelData, setEndModelData, setModelData]);
+    }, [landmark]);
 
 
     return (
@@ -152,7 +159,7 @@ export default function PathfindingClient() {
                         </div>
                         <div className="flex flex-col gap-2 text-center justify-center items-center relative w-full h-full">
                             <div className="text-3xl font-bold mb-4">{floorHeader}</div>
-                            {mapImage && <ImageWithOverlay key={currentFloor} mapImage={mapImage}/>}
+                            {mapImage && <ImageWithOverlay key={currentFloor} mapImage={mapImage} />}
                         </div>
                         <div className="p-3 cursor-pointer text-4xl font-bold hover:text-green-500" onClick={showNextFloor}>
                             &#8594;
