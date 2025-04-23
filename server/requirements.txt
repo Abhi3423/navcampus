@@ -13,6 +13,7 @@ folium==0.19.4
 fonttools==4.55.4
 geopandas==1.0.1
 greenlet==3.1.1
+gunicorn==23.0.0
 idna==3.10
 itsdangerous==2.2.0
 Jinja2==3.1.4
@@ -30,6 +31,7 @@ pyogrio==0.10.0
 pyparsing==3.2.1
 pyproj==3.7.0
 python-dateutil==2.9.0.post0
+python-dotenv==1.1.0
 pytz==2024.2
 requests==2.32.3
 scikit-learn==1.5.0
@@ -43,5 +45,3 @@ tzdata==2025.1
 urllib3==2.3.0
 Werkzeug==3.0.6
 xyzservices==2025.1.0
-gunicorn
-
