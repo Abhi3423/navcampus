@@ -19,6 +19,8 @@ itsdangerous==2.2.0
 Jinja2==3.1.4
 joblib==1.4.2
 kiwisolver==1.4.8
+manifold3d==3.0.1
+mapbox_earcut==1.0.3
 MarkupSafe==3.0.2
 matplotlib==3.10.0
 networkx==3.4.2
@@ -42,6 +44,7 @@ shapely==2.0.6
 six==1.17.0
 SQLAlchemy==2.0.36
 threadpoolctl==3.5.0
+triangle==20250106
 trimesh==4.6.8
 typing_extensions==4.12.2
 tzdata==2025.1
