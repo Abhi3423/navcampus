@@ -44,7 +44,7 @@ class LandmarksTab:
     
     def refresh_landmarks(self):
         try:
-            resp = requests.get("http://127.0.0.1:5000/api/landmarks")
+            resp = requests.get("https://navcampus-e0cw.onrender.com/api/landmarks")
             resp.raise_for_status()
             data = resp.json()  # List of landmarks
         except Exception as e:
@@ -104,7 +104,7 @@ class LandmarksTab:
                 messagebox.showerror("Validation Error", "Latitude and Longitude must be numeric.")
                 return
             try:
-                resp = requests.post("http://127.0.0.1:5000/api/landmarks", json={
+                resp = requests.post("https://navcampus-e0cw.onrender.com/api/landmarks", json={
                     "id": lid, "landmark_name": lname, "latitude": lat_val, "longitude": lon_val
                 })
                 if resp.status_code not in (200, 201):
@@ -164,7 +164,7 @@ class LandmarksTab:
                 messagebox.showerror("Validation Error", "Latitude and Longitude must be numeric.")
                 return
             try:
-                resp = requests.put(f"http://127.0.0.1:5000/api/landmarks/{lm['id']}", json={
+                resp = requests.put(f"https://navcampus-e0cw.onrender.com/api/landmarks/{lm['id']}", json={
                     "landmark_name": lname, "latitude": lat_val, "longitude": lon_val
                 })
                 if resp.status_code != 200:
@@ -190,7 +190,7 @@ class LandmarksTab:
         if not messagebox.askyesno("Confirm Delete", f"Delete landmark '{name}'?"):
             return
         try:
-            resp = requests.delete(f"http://127.0.0.1:5000/api/landmarks/{selected_id}")
+            resp = requests.delete(f"https://navcampus-e0cw.onrender.com/api/landmarks/{selected_id}")
             if resp.status_code != 200:
                 raise Exception(f"Error {resp.status_code}: {resp.text}")
         except Exception as e:

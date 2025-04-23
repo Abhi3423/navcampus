@@ -301,7 +301,7 @@ def run_dijkstras_on_all_pairs(canvas):
 
     messagebox.showinfo("Dijkstra's Complete", "Dijkstra's algorithm completed for all node pairs.")
     
-def upload_file_to_flask(file_path, landmark, url="http://127.0.0.1:5000/api/update_file"):
+def upload_file_to_flask(file_path, landmark, url="https://navcampus-e0cw.onrender.com/api/update_file"):
     """Uploads a file to the Flask backend."""
     try:
         with open(file_path, 'rb') as file:
@@ -316,7 +316,7 @@ def upload_file_to_flask(file_path, landmark, url="http://127.0.0.1:5000/api/upd
 def fetch_landmark_names():
     """Fetch landmark names from the server."""
     try:
-        response = requests.get("http://127.0.0.1:5000/api/get_landmarks")
+        response = requests.get("https://navcampus-e0cw.onrender.com/api/get_landmarks")
         if response.status_code == 200:
             return response.json().get("landmarks", [])
         else:

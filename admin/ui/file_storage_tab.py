@@ -123,7 +123,7 @@ class FileStorageTab:
     
     def refresh_files(self):
         try:
-            resp = requests.get("http://127.0.0.1:5000/api/file_storage")
+            resp = requests.get("https://navcampus-e0cw.onrender.com/api/file_storage")
             resp.raise_for_status()
             data = resp.json()  # List of file records
         except Exception as e:
@@ -197,7 +197,7 @@ class FileStorageTab:
             try:
                 files = {'file': open(new_file_path["path"], 'rb')}
                 data = {'landmark': sel_landmark}
-                resp = requests.post("http://127.0.0.1:5000/api/file_storage", files=files, data=data)
+                resp = requests.post("https://navcampus-e0cw.onrender.com/api/file_storage", files=files, data=data)
                 if resp.status_code not in (200, 201):
                     raise Exception(f"Error {resp.status_code}: {resp.text}")
             except Exception as e:
@@ -265,10 +265,10 @@ class FileStorageTab:
                 if new_file_path["path"]:
                     files = {'file': open(new_file_path["path"], 'rb')}
                     data = {'landmark': sel_landmark}
-                    resp = requests.put(f"http://127.0.0.1:5000/api/file_storage/{file_rec.get('id')}", files=files, data=data)
+                    resp = requests.put(f"https://navcampus-e0cw.onrender.com/api/file_storage/{file_rec.get('id')}", files=files, data=data)
                 else:
                     data = {'landmark': sel_landmark}
-                    resp = requests.put(f"http://127.0.0.1:5000/api/file_storage/{file_rec.get('id')}", data=data)
+                    resp = requests.put(f"https://navcampus-e0cw.onrender.com/api/file_storage/{file_rec.get('id')}", data=data)
                 if resp.status_code != 200:
                     raise Exception(f"Error {resp.status_code}: {resp.text}")
             except Exception as e:
@@ -295,7 +295,7 @@ class FileStorageTab:
         if not messagebox.askyesno("Confirm Delete", f"Delete file '{fname}'?"):
             return
         try:
-            resp = requests.delete(f"http://127.0.0.1:5000/api/file_storage/{file_id}")
+            resp = requests.delete(f"https://navcampus-e0cw.onrender.com/api/file_storage/{file_id}")
             if resp.status_code != 200:
                 raise Exception(f"Error {resp.status_code}: {resp.text}")
         except Exception as e:
@@ -308,7 +308,7 @@ class FileStorageTab:
         if not file_id:
             return
         try:
-            resp = requests.get(f"http://127.0.0.1:5000/api/file/{file_id}")
+            resp = requests.get(f"https://navcampus-e0cw.onrender.com/api/file/{file_id}")
             if resp.status_code != 200:
                 raise Exception(f"Error {resp.status_code}: {resp.text}")
         except Exception as e:

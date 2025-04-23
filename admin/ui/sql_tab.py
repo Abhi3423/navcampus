@@ -38,7 +38,7 @@ class SQLTab:
         
         # Using the Flask endpoint:
         try:
-            response = requests.post("http://127.0.0.1:5000/api/execute_sql", json={"command": command})
+            response = requests.post("https://navcampus-e0cw.onrender.com/api/execute_sql", json={"command": command})
             if response.status_code == 200:
                 data = response.json()
                 if "result" in data:

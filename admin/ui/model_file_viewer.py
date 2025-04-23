@@ -203,7 +203,7 @@ class ModelFileViewer:
         # Send a PUT request to update the file in the database.
         try:
             data = {"content": new_content}
-            url = f"http://127.0.0.1:5000/api/file_storage/{self.file_id}"
+            url = f"https://navcampus-e0cw.onrender.com/api/file_storage/{self.file_id}"
             resp = requests.put(url, data=data)
             if resp.status_code != 200:
                 raise Exception(f"Error {resp.status_code}: {resp.text}")
