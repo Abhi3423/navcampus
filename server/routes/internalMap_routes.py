@@ -75,11 +75,11 @@ def get_path():
         if path:
             img_base64 = generate_path_image_from_db(path, nodes, start_floor, landmark_name)
             response_data["start_end_floor"] = {"image": img_base64, "floor": start_floor, "node": nodes}
-            if get3d:
-                # Decode the 2D image from base64 into bytes and generate the 3D model in memory
-                image_bytes = base64.b64decode(img_base64)
-                glb_bytes = generate_3d_model_from_bytes(image_bytes, start_floor, landmark_name)
-                response_data["start_end_floor"]["modelData"] = base64.b64encode(glb_bytes).decode("utf-8")
+            # if get3d:
+            #     # Decode the 2D image from base64 into bytes and generate the 3D model in memory
+            #     image_bytes = base64.b64decode(img_base64)
+            #     glb_bytes = generate_3d_model_from_bytes(image_bytes, start_floor, landmark_name)
+            #     response_data["start_end_floor"]["modelData"] = base64.b64encode(glb_bytes).decode("utf-8")
         else:
             return jsonify({"error": "Path does not exist"}), 404
     else:
@@ -111,14 +111,34 @@ def get_path():
             response_data["start_floor"] = {"image": img_base64_start, "floor": start_floor, "node": nodes_start}
             response_data["end_floor"] = {"image": img_base64_end, "floor": end_floor, "node": nodes_end}
             
-            if get3d:
-                image_bytes_start = base64.b64decode(img_base64_start)
-                glb_bytes_start = generate_3d_model_from_bytes(image_bytes_start, start_floor, landmark_name)
-                response_data["start_floor"]["modelData"] = base64.b64encode(glb_bytes_start).decode("utf-8")
-                image_bytes_end = base64.b64decode(img_base64_end)
-                glb_bytes_end = generate_3d_model_from_bytes(image_bytes_end, end_floor, landmark_name)
-                response_data["end_floor"]["modelData"] = base64.b64encode(glb_bytes_end).decode("utf-8")
+            # if get3d:
+            #     image_bytes_start = base64.b64decode(img_base64_start)
+            #     glb_bytes_start = generate_3d_model_from_bytes(image_bytes_start, start_floor, landmark_name)
+            #     response_data["start_floor"]["modelData"] = base64.b64encode(glb_bytes_start).decode("utf-8")
+            #     image_bytes_end = base64.b64decode(img_base64_end)
+            #     glb_bytes_end = generate_3d_model_from_bytes(image_bytes_end, end_floor, landmark_name)
+            #     response_data["end_floor"]["modelData"] = base64.b64encode(glb_bytes_end).decode("utf-8")
         else:
             return jsonify({"error": "Path does not exist"}), 404
 
     return jsonify(response_data)
+
+
+@internal_map_bp.route('/get_model', methods=['POST'])
+def get_modelData():
+    data = request.get_json()
+    result = {}
+
+    for key, floor_data in data.items():
+        try:
+            floor = floor_data.get("floor")
+            image_base64 = floor_data.get("image")
+            landmark_name = floor_data.get("landmark")
+            image_bytes = base64.b64decode(image_base64)
+            model_data = generate_3d_model_from_bytes(image_bytes, floor, landmark_name)
+            model_bytes = base64.b64encode(model_data).decode("utf-8")
+            result[key] = model_bytes
+        except Exception as e:
+            return jsonify({"error": f"Error processing model for key {key}: {str(e)}"}), 500
+
+    return jsonify(result), 200

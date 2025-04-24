@@ -324,7 +324,6 @@ export default function NewDisplay() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/path/to/your/background.jpg')",
             filter: "blur(8px)",
           }}
         />

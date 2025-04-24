@@ -15,7 +15,7 @@ const MapComponent = ({
 
   const {
     mapHtml, setFloorView, setLandmark, setStartFloor, setEndFloor, setStartPosition, setEndPosition,
-    sourceFloor, targetFloor, sourcePosition, targetPosition, setHasFetchedPath, setMapImage, setNodes
+    sourceFloor, targetFloor, sourcePosition, targetPosition, setHasFetchedPath, setMapImage, setNodes, setHasFetchedModel
   } = useMapStore();
 
 
@@ -198,6 +198,7 @@ const MapComponent = ({
     setLandmark(name);
     setFloorView(true);
     setHasFetchedPath(false);
+    setHasFetchedModel(false);
     setMapImage(null);
     setNodes(undefined);
   };

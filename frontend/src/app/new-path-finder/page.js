@@ -125,9 +125,9 @@ function Pathfinder() {
             <div className='flex flex-col md:flex-row  w-[100%] md:h-[100vh]'>
                 <div className='overflow-y-scroll flex flex-col gap-3 items-center text-center p-2 rounded-r-lg bg-white drop-shadow-lg shadow-lg w-[100%] md:w-[20%]'>
                     <div className='w-full rounded-md text-white font-bold text-2xl py-3 font-sans bg-blue'>Path Finder</div>
-                    <div class="overflow-hidden whitespace-nowrap w-full bg-gray-100">
-                        <div class="inline-block animate-marquee">
-                            <span class="flex justify-center items-center text-center gap-1 px-4 py-1 text-base font-medium text-gray-800">
+                    <div className="overflow-hidden whitespace-nowrap w-full bg-gray-100">
+                        <div className="inline-block animate-marquee">
+                            <span className="flex justify-center items-center text-center gap-1 px-4 py-1 text-base font-medium text-gray-800">
                                 <div className='bg-gray-300 text-black rounded-full w-6 h-6 flex items-center justify-center'>
                                     i
                                 </div>

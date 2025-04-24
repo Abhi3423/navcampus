@@ -17,7 +17,6 @@ const useMapStore = create((set) => ({
     info: '',
     sourcedataPoints: {},
     destinationdataPoints: {},
-    ladmarks: {},
     display: false,
     modelData: undefined,
     startmodelData: undefined,
@@ -49,6 +48,8 @@ const useMapStore = create((set) => ({
     startFloorData: null,
     endFloorData: null,
     hasFetchedPath: false,
+    hasFetchedModel: false,
+    loading3d: false,
 
     // Setters
     setFormData: (newData) =>
@@ -63,7 +64,6 @@ const useMapStore = create((set) => ({
     setInfo: (info) => set({ info }),
     setSourceDataPoints: (sourcedataPoints) => set({ sourcedataPoints }),
     setDestinationDataPoints: (destinationdataPoints) => set({ destinationdataPoints }),
-    setLandmarks: (ladmarks) => set({ ladmarks }),
     setDisplay: (display) => set({ display }),
     setModelData: (modelData) => set({ modelData }),
     setStartModelData: (startmodelData) => set({ startmodelData }),
@@ -91,6 +91,8 @@ const useMapStore = create((set) => ({
     setStartFloorData: (startFloorData) => set({ startFloorData }),
     setEndFloorData: (endFloorData) => set({ endFloorData }),
     setHasFetchedPath: (value) => set({ hasFetchedPath: value }),
+    setHasFetchedModel: (value) => set({ hasFetchedModel: value }),
+    setLoading3d: (value) => set({ loading3d: value })
 }));
 
 export default useMapStore;
