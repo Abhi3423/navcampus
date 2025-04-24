@@ -94,14 +94,13 @@ const useMapActions = () => {
       }
 
       const responseData = await response.json();
-
       if (responseData) {
         
         setLoading3d(false);
         setHasFetchedModel(true);
         setDisplay(true);
 
-        if (startFloorData == null) {
+        if (endFloorData == null) {
           setStartModelData(`data:model/gltf-binary;base64,${responseData[1]}`);
         }
         else {
