@@ -32,6 +32,12 @@ export default function RootLayout({ children }) {
             <NavbarLink as={Link} href="information">
               <div className={navbtnclass}>Information</div>
             </NavbarLink>
+            <NavbarLink as={Link} href="https://github.com/Abhi3423/navcampus">
+              <div className={navbtnclass}>View Github</div>
+            </NavbarLink>
+            <NavbarLink as={Link} href="https://ieeexplore.ieee.org/document/10894337">
+              <div className={navbtnclass}>View Research Paper</div>
+            </NavbarLink>
           </NavbarCollapse>
         </Navbar>
         {children}
